@@ -8,30 +8,35 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+// @CODE SMELL (Lexicon)
+// Adicionei um lexicon bad smell, os identificadores de livros, revistas e objetos foram codificados para:
+// Livros -> x
+// Revistas -> y
+// Objects -> z
 public class TelaListagem {
 
-    private List<Object> objects = new ArrayList<>();
+    private List<Object> z = new ArrayList<>();
 
-    public TelaListagem(List<Livro> livros, List<Revista> revistas) {
-        this.objects = this.setListagem(livros, revistas);
+    public TelaListagem(List<Livro> x, List<Revista> y) {
+        this.z = this.setListagem(x, y);
         this.start();
     }
 
-    private List<Object> setListagem(List<Livro> livros, List<Revista> revistas) {
-        objects.addAll(livros);
-        objects.addAll(revistas);
+    private List<Object> setListagem(List<Livro> x, List<Revista> y) {
+        z.addAll(x);
+        z.addAll(y);
 
-        return objects;
+        return z;
     }
 
     private void start() {
         JFrame frame = new JFrame("Listagem");
-        frame.setSize(500, 40 + (20 * objects.size()));
+        frame.setSize(500, 40 + (20 * z.size()));
 
         JLabel label = new JLabel();
         String tudo = "";
         int i = 0;
-        for (Object object : this.objects) {
+        for (Object object : this.z) {
             tudo = tudo + "<html>" + object.toString() + "<br/><html/>";
         }
 
